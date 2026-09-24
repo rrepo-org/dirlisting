@@ -6,6 +6,13 @@ and options. No HTTP client, runtime, filesystem, browser, JavaScript API, or
 Cloudflare API is required. Results are owned Rust data, usable by a downstream
 application's own serialization/FFI layer.
 
+Requires **Rust 1.88 or newer**. Add it to your application with:
+
+```toml
+[dependencies]
+dirlisting = "0.1"
+```
+
 ```rust
 use dirlisting::{parse, Options, Format};
 
@@ -159,3 +166,5 @@ cargo clippy --locked --target wasm32-unknown-unknown -- -D warnings
 Clippy `all` and `pedantic` are denied in the manifest. CI runs native tests and
 Wasm compilation. The core has no JavaScript bindings or downstream adapter
 crate; consumers own their FFI and packaging.
+
+Release history is recorded in [CHANGELOG.md](CHANGELOG.md).

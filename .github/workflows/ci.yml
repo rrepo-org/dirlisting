@@ -16,3 +16,15 @@ jobs:
       - run: cargo test --locked --all-features
       - run: cargo build --locked --target wasm32-unknown-unknown
       - run: cargo clippy --locked --target wasm32-unknown-unknown -- -D warnings
+      - run: cargo package --locked
+      - run: cargo test --locked --manifest-path target/package/dirlisting-0.1.0/Cargo.toml
+      - run: cargo build --locked --manifest-path target/package/dirlisting-0.1.0/Cargo.toml --target wasm32-unknown-unknown
+  msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.88.0
+        with:
+          targets: wasm32-unknown-unknown
+      - run: cargo test --locked --all-features
+      - run: cargo build --locked --target wasm32-unknown-unknown
