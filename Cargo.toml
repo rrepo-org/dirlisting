@@ -2,5 +2,21 @@
 name = "dirlisting"
 version = "0.1.0"
 edition = "2024"
+description = "Passive, runtime-independent parsing of HTTP directory listings"
+license = "MIT"
+repository = "https://github.com/rrepo-org/dirlisting"
 
 [dependencies]
+url = "2.5"
+encoding_rs = "0.8"
+serde_json = { version = "1", features = ["arbitrary_precision"] }
+quick-xml = "0.38"
+scraper = { version = "0.24", default-features = false }
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "deny"
+pedantic = "deny"
